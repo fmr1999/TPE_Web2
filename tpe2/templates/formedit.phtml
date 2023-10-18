@@ -1,0 +1,59 @@
+<form action="editarJoyeria/<?= $id ?>" method="POST" class="my-4">
+    <div class="row text-center">
+        <div class="col-3">
+            <div class="form-group">
+                <label>Marca</label>
+                <input  name="marca" type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="form-group">
+                <label>Precio</label>
+                <input required name="precio" type="number" class="form-control">
+            </div>
+
+        </div><div class="col-3">
+            <div class="form-group">
+                <label>Bañado</label>
+                <input required name="bañado" type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-2">
+            <div class="form-group">
+                <label>Accesorio</label>
+                <select required name="accesorio" class="form-control text-center">
+                    <?php foreach ($accesorios as $acc) : ?>
+                        <option value="<?= $acc->id_joya ?>"> <?= $acc->id_joya ?> </option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-warning mt-2">Enviar</button>
+</form>
+
+
+
+<table class="table table-striped-columns">
+<thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Bañado</th>
+      <th scope="col">Accesorio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <th scope="row"> <?= $fila->id ?> </th>
+        <td> <?= $fila->marca ?> </td>
+        <td> <?= $fila->precio ?> </td>
+        <td> <?= $fila->bañado ?> </td>
+        <td> <?= $fila->id_joya ?> </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,59 @@
+
+<?php 
+  if (isset($_SESSION['USER_NAME'])) : 
+    require_once 'templates/formJoyeria.phtml';
+  endif
+?>
+
+<table class="table table-striped-columns">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Bañado</th>
+      <th scope="col">Accesorio</th>
+      <?php  if (isset($_SESSION['USER_NAME'])) :  ?>
+        <th scope="col">Operaciones</th>
+      <?php endif ?>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach($joyerias as $joya): ?>
+    <tr>
+        <th scope="row"> <?= $joya->id ?> </th>
+        <td> <a href="showEspecifico/<?= $joya->id ?>"><?= $joya->marca ?> </a> </td>
+        <td> <?= $joya->precio ?> </td>
+        <td> <?= $joya->bañado ?> </td>
+        <td> <?= $joya->id_joya ?> </td>
+        <?php 
+          if (isset($_SESSION['USER_NAME'])) :  ?>
+            <td> <a href="eliminarJoyeria/<?= $joya->id ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+            <a href="buttonEdit/<?= $joya->id ?>" type="button" class='btn btn-warning ml-auto'>Editar</a> </td>
+          <?php endif
+        ?>
+        
+    </tr>
+    <?php endforeach ?>
+  </tbody>
+</table>
+
+
+
+
+<div class="ml-7">
+  <form action="filtrarItemsAccesorio" method="POST">
+  
+    <div class="col-2">
+      <div class="form-group text-center">
+        <label>Accesorio</label>
+        <select required name="accesorio" class="form-control text-center">
+          <?php foreach ($accesorios as $acc) : ?>
+            <option value="<?= $acc->id_joya ?>"> <?= $acc->id_joya ?> </option>
+          <?php endforeach ?>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class='btn btn-danger ml-auto my-2'>Filtrar</button>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<table class="table table-striped-columns">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Bañado</th>
+      <th scope="col">Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($accesorios as $accesorio) : ?>
+      <tr>
+        <th scope="row"> <?= $accesorio->id ?> </th>
+        <td> <a href="showEspecifico/<?= $accesorio->id ?>"><?= $accesorio->marca ?> </a> </td>
+        <td> <?= $accesorio->precio ?> </td>
+        <td> <?= $accesorio->bañado ?> </td>
+        <td> <?= $accesorio->id_joya ?> </td>
+      </tr>
+    <?php endforeach ?>
+  </tbody>
+</table>

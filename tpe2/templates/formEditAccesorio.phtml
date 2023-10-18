@@ -1,0 +1,28 @@
+<form action="editarAccesorio/<?= $accesorio->id ?>" method="POST" class="my-4">
+    <div class="col-2 text-center">
+        <div class="form-group">
+            <div class="form-group">
+                <label>Editar Accesorio</label>
+                <input required name="accesorio" type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <button type="submit" class="btn btn-warning mt-2">Enviar</button>
+</form>
+
+<table class="table table-striped-columns">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Accesorio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row"> <?= $accesorio->id ?> </th>
+            <td> <?= $accesorio->id_joya ?> </td>
+        </tr>
+    </tbody>
+</table>

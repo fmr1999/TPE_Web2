@@ -1,0 +1,34 @@
+
+<?php if(isset($_SESSION['USER_NAME'])) :
+    require_once 'templates/formAccesorios.phtml';
+endif
+?>
+
+
+<table class="table table-striped-columns">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">accesorios</th>
+            <?php if(isset($_SESSION['USER_NAME'])) : ?>
+            <th scope="col">Operaciones</th>
+            <?php endif ?>
+        
+
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($accesorios as $acc) : ?>
+            <tr>
+                <th scope="row"> <?= $acc->id ?> </th>
+                <td> <?= $acc->id_joya ?> </td>
+                <?php 
+                if (isset($_SESSION['USER_NAME'])) :  ?>
+                    <td> <a href="eliminarAccesorios/<?= $acc->id_joya ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>
+                    <a href="buttonEditAccesorio/<?= $acc->id ?>" type="button" class='btn btn-warning ml-auto'>Editar</a> </td>
+                <?php endif
+                ?>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
